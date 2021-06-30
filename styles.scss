@@ -4,6 +4,10 @@
   box-sizing: border-box;
   font-family: 'Oswald', sans-serif;
 }
+.toggleButton {
+  display: none;
+}
+
 .container {
   height: 90vh;
   overflow: hidden;
@@ -66,7 +70,10 @@ section {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        button {
+        .button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           background-color: #0e1030;
           border: none;
           width: 50%;
@@ -109,6 +116,7 @@ section {
       }
       p {
         position: absolute;
+        width: 100%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -181,6 +189,79 @@ nav {
 }
 
 @media (max-width: 768px) {
+  .toggleButton {
+    display: block;
+    position: fixed;
+    top: 50px;
+    right: 5%;
+    z-index: 2;
+    transform: translate(0, -50%);
+    transition: 0.5s;
+    &.close {
+      transition: 0.5s;
+      .bar:nth-child(1) {
+        // transform-origin: center left;
+        transform: translateY(10px) rotate(-45deg);
+      }
+      .bar:nth-child(2) {
+        transform-origin: center;
+        transform: rotate(45deg);
+      }
+      .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(45deg);
+      }
+    }
+    .bar {
+      height: 2px;
+      width: 30px;
+      margin-bottom: 8px;
+      background-color: #fff;
+      transition: 0.5s;
+    }
+    // i {
+    //   font-size: 32px;
+    // }
+  }
+  nav {
+    ul {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      display: flex;
+      right: 0;
+      height: auto;
+      height: 100%;
+      flex-direction: column;
+      width: 100%;
+      background-color: #0e1030;
+      z-index: 1;
+      transition: 0.5s;
+      // border: solid 1px white;
+      &.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      li {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid white;
+        border-left: 1px solid white;
+        a {
+          text-align: center;
+          font-size: 28px;
+        }
+      }
+    }
+    .logo {
+      a {
+        font-size: 20px;
+        width: 100px;
+      }
+    }
+  }
+
   .container {
     overflow: auto;
     section {
@@ -212,8 +293,34 @@ nav {
         flex-direction: column;
         div {
           width: 50%;
+          min-width: 220px;
           height: 100px;
           margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    ul {
+      li {
+        a {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+  .container {
+    .content-container {
+      .text-container {
+        .buttons-container {
+          a {
+            // text-align: center;
+            padding: 20px;
+            font-size: 16px;
+          }
         }
       }
     }

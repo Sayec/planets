@@ -2,12 +2,20 @@ import data from './data.js';
 
 const menuButtons = document.querySelectorAll('nav ul li a');
 const planets = document.querySelectorAll('section');
-const buttons = document.querySelectorAll('section button');
+const buttons = document.querySelectorAll('section .button');
 const planetsInformation = data();
 const sectionText = document.querySelector('section .text-container p');
+const toggleMenu = document.querySelector('a');
+const nav = document.querySelector('nav ul');
 let typeOfInformation = 'overview';
 let index = 0;
-console.log(planetsInformation);
+
+toggleMenu.addEventListener('click', (e) => {
+  e.preventDefault();
+  nav.classList.toggle('visible');
+  toggleMenu.classList.toggle('close');
+});
+
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
     console.log(e.target);
@@ -57,15 +65,7 @@ menuButtons.forEach((button) => {
     information[3].innerHTML =
       planetsInformation[index].information.temperature;
 
-    // for (let i = 0; i < planets.length; i++) {
-    //   planets[i].classList.remove('active');
-    // }
-    // let planetNameActive = `${button.dataset.planetName}`;
-    // const activePlanet = document.querySelector(
-    //   `section[data-planet-name="${planetNameActive}"]`
-    // );
-    // activePlanet.classList.add('active');
-    // console.log(button.dataset.planetName);
-    // console.log(activePlanet);
+    nav.classList.remove('visible');
+    toggleMenu.classList.remove('close');
   });
 });
