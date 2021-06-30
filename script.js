@@ -18,8 +18,8 @@ toggleMenu.addEventListener('click', (e) => {
 
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
-    console.log(e.target);
-    typeOfInformation = e.target.className;
+    console.log(e.target.className.split(' ')[1]);
+    typeOfInformation = e.target.className.split(' ')[1];
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].classList.remove('active');
     }
