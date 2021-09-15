@@ -2,6 +2,7 @@ import data from './data.js';
 
 const menuButtons = document.querySelectorAll('nav ul li a');
 const planets = document.querySelectorAll('section');
+const container = document.querySelector('.container');
 const buttons = document.querySelectorAll('section .button');
 const planetsInformation = data();
 const sectionText = document.querySelector('section .text-container p');
@@ -23,6 +24,7 @@ buttons.forEach((button) => {
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].classList.remove('active');
     }
+
     e.target.classList.add('active');
     switch (typeOfInformation) {
       case 'overview':
@@ -41,31 +43,40 @@ menuButtons.forEach((button) => {
     index = planetsInformation
       .map((e) => e.name)
       .indexOf(button.dataset.planetName);
-    const sectionTitle = document.querySelector('section .text-container h1');
 
-    const sectionImg = document.querySelector('section .photo-container img');
-    const information = document.querySelectorAll('section .information p');
+    container.style.transform = 'translate(-3%,0)';
+    container.style.opacity = 0;
+    setTimeout(() => {
+      const sectionTitle = document.querySelector('section .text-container h1');
 
-    sectionTitle.innerHTML = planetsInformation[index].namePL;
-    switch (typeOfInformation) {
-      case 'overview':
-        sectionText.innerHTML = planetsInformation[index].overview;
-        break;
-      case 'structure':
-        sectionText.innerHTML = planetsInformation[index].internalStructure;
-        break;
-    }
-    sectionImg.src = planetsInformation[index].src;
+      const sectionImg = document.querySelector('section .photo-container img');
+      const information = document.querySelectorAll('section .information p');
 
-    information[0].innerHTML =
-      planetsInformation[index].information.distanceFromSun;
-    information[1].innerHTML =
-      planetsInformation[index].information.revolutionTime;
-    information[2].innerHTML = planetsInformation[index].information.radius;
-    information[3].innerHTML =
-      planetsInformation[index].information.temperature;
+      sectionTitle.innerHTML = planetsInformation[index].namePL;
+      switch (typeOfInformation) {
+        case 'overview':
+          sectionText.innerHTML = planetsInformation[index].overview;
+          break;
+        case 'structure':
+          sectionText.innerHTML = planetsInformation[index].internalStructure;
+          break;
+      }
+      sectionImg.src = planetsInformation[index].src;
 
-    nav.classList.remove('visible');
-    toggleMenu.classList.remove('close');
+      information[0].innerHTML =
+        planetsInformation[index].information.distanceFromSun;
+      information[1].innerHTML =
+        planetsInformation[index].information.revolutionTime;
+      information[2].innerHTML = planetsInformation[index].information.radius;
+      information[3].innerHTML =
+        planetsInformation[index].information.temperature;
+
+      nav.classList.remove('visible');
+      toggleMenu.classList.remove('close');
+    }, 1000);
+    setTimeout(() => {
+      container.style.transform = 'translate(0,0)';
+      container.style.opacity = 1;
+    }, 1000);
   });
 });
