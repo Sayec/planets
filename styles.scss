@@ -11,7 +11,8 @@
 .container {
   height: 90vh;
   overflow: hidden;
-  border-top: #393857 solid 2px;
+
+  transition: 1s ease-out;
 }
 
 section {
@@ -145,7 +146,7 @@ nav {
   flex-direction: row;
   height: 10vh;
   justify-content: space-between;
-
+  border-bottom: #393857 solid 2px;
   .logo {
     height: 100%;
     width: 200px;
@@ -250,7 +251,7 @@ nav {
         border-left: 1px solid white;
         a {
           text-align: center;
-          font-size: 28px;
+          font-size: 22px;
         }
       }
     }
@@ -264,6 +265,7 @@ nav {
 
   .container {
     overflow: auto;
+
     section {
       height: auto;
 
@@ -286,6 +288,11 @@ nav {
             margin-top: 70px;
             position: static;
             align-items: center;
+            a {
+              // text-align: center;
+              padding: 20px;
+              font-size: 16px;
+            }
           }
         }
       }
@@ -296,31 +303,6 @@ nav {
           min-width: 250px;
           height: 100px;
           margin-bottom: 15px;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    ul {
-      li {
-        a {
-          font-size: 22px;
-        }
-      }
-    }
-  }
-  .container {
-    .content-container {
-      .text-container {
-        .buttons-container {
-          a {
-            // text-align: center;
-            padding: 20px;
-            font-size: 16px;
-          }
         }
       }
     }
