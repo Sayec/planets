@@ -77,6 +77,6 @@ menuButtons.forEach((button) => {
     setTimeout(() => {
       container.style.transform = 'translate(0,0)';
       container.style.opacity = 1;
-    }, 1000);
+    }, 1500);
   });
 });
