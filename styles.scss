@@ -12,7 +12,7 @@
   height: 90vh;
   overflow: hidden;
 
-  transition: 1s ease-out;
+  transition: 0.7s ease-out;
 }
 
 section {
@@ -55,13 +55,13 @@ section {
         color: white;
         text-transform: uppercase;
         font-size: 46px;
-        // font-weight: 500;
       }
       p {
         width: 80%;
         color: white;
         font-weight: 200;
         font-size: 20px;
+        transition: 0.5s linear;
       }
       .buttons-container {
         position: absolute;
@@ -83,7 +83,7 @@ section {
           border: #393857 solid 2px;
           color: white;
           &:hover {
-            background-color: rgb(109, 46, 213);
+            background-color: rgb(176, 127, 255);
           }
           &.active {
             background-color: rgb(109, 46, 213);
@@ -99,28 +99,22 @@ section {
     align-items: center;
     justify-content: space-around;
     div {
+      display: flex;
+      flex-direction: column;
       position: relative;
-      max-height: 100px;
       height: 100%;
       width: 250px;
       border: #393857 solid 2px;
       text-align: center;
+      align-items: center;
+      justify-content: space-around;
       h4 {
-        position: absolute;
-        left: 50%;
-        width: 100%;
-        transform: translate(-50%, 0);
-        // margin-top: 5px;
-        // margin-left: 5px;
+        flex-basis: 20%;
         color: white;
-        font-size: 20px;
+        font-size: 25px;
       }
       p {
-        position: absolute;
         width: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         color: white;
         font-size: 20px;
       }
@@ -168,7 +162,8 @@ nav {
       a {
         padding: 5px;
         margin: 15px;
-        width: 100%;
+        // width: 100%;
+        font-size: 22px;
         position: relative;
         &:after {
           position: absolute;
@@ -219,9 +214,6 @@ nav {
       background-color: #fff;
       transition: 0.5s;
     }
-    // i {
-    //   font-size: 32px;
-    // }
   }
   nav {
     ul {
